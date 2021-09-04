@@ -5,7 +5,7 @@ DOCKER_BUILDKIT=1
 
 case $mode in
   --dev)
-    docker-compose up -d --build
+    docker-compose up --build
     ;;
   
   --prod)
@@ -14,6 +14,6 @@ case $mode in
   
   *)
     echo 'Unknown parameter! Only --dev and --prod options are available.'
-    exit 2
+    exit 1
     ;;
 esac

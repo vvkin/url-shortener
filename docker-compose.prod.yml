@@ -1,17 +1,34 @@
 version: '3.9'
 
 services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - local
+
   web:
     build:
       context: ./
       dockerfile: Dockerfile
       target: production
     env_file: .env
-    restart: always
     ports:
-      - 8080:8080
+      - ${PORT}:${PORT}
+    depends_on:
+      - db
+    restart: always
     networks:
       - local
+
+volumes:
+  mysql_data:
 
 networks:
   local:
