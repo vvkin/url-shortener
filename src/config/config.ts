@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import { ServerConfig } from './interfaces/server.config';
 
 export const SERVER_CONFIG = 'SERVER';
@@ -6,6 +5,6 @@ export const SERVER_CONFIG = 'SERVER';
 export const config = {
   [SERVER_CONFIG]: {
     port: process.env.PORT ?? 8080,
-    host: process.env.HOST || '127.0.0.1',
+    host: process.env.HOST ?? '0.0.0.0',
   } as ServerConfig,
 };

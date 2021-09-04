@@ -1,0 +1,21 @@
+# Only for development
+version: '3.9'
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      target: development
+    env_file: .env
+    volumes:
+      - ./src:/usr/src/app/src/
+      - ./node_modules:/usr/src/app/node_modules
+    ports:
+      - 8080:8080
+    networks:
+      - local
+
+networks:
+  local:
+    external: false
