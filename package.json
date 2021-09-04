@@ -1,0 +1,31 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "Simple REST-based URL shortener",
+  "main": "dist/server.js",
+  "repository": "git@github.com:vvkin/url-shortener.git",
+  "author": "Vadym Kinchur <vkincur@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "pre-build": "rm -rf dist/",
+    "build": "tsc -p ./tsconfig.json",
+    "start": "node -r ./paths.js dist/server.js",
+    "lint": "eslint src/",
+    "lint:fix": "eslint --fix src/",
+    "test": "echo test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^16.7.10",
+    "@typescript-eslint/eslint-plugin": "^4.30.0",
+    "@typescript-eslint/parser": "^4.30.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.3.2",
+    "tsconfig-paths": "^3.11.0",
+    "typescript": "^4.4.2"
+  }
+}
