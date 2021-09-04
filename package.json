@@ -14,8 +14,14 @@
     "lint:fix": "eslint --fix src/",
     "test": "echo test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/express": "^4.17.13",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  },
   "devDependencies": {
+    "@types/cors": "^2.8.12",
     "@types/node": "^16.7.10",
     "@typescript-eslint/eslint-plugin": "^4.30.0",
     "@typescript-eslint/parser": "^4.30.0",

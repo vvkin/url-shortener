@@ -1,10 +1,11 @@
 import { createServer } from 'http';
-import { port } from '@config/config';
+import { app } from './app';
+import { config, SERVER_CONFIG } from '@config/config';
 
-const server = createServer((req, res) => {
-  res.end('<h1>Hello world!</h1>');
-});
+const { port, host } = config[SERVER_CONFIG];
 
-server.listen(port, () => {
-  console.log(`Server started on http://localhost:${port}`);
+const server = createServer(app);
+
+server.listen(port, host, () => {
+  console.log(`Server started on http://${host}:${port}`);
 });
