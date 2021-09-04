@@ -10,7 +10,14 @@
     "removeComments": true,
     "sourceMap": true,
     "outDir": "./dist",
-    "baseUrl": "./"
+    "baseUrl": "./src",
+    "paths": {
+      "@src/*": ["*"],
+      "@database": ["database/*"],
+      "@config/*": ["config/*"],
+      "@domain/*": ["domain/*"],
+      "@shared/*": ["shared/*"]
+    }
   },
   "exclude": ["node_modules", "dist", "**/*.spec.ts"]
 }
