@@ -1,0 +1,9 @@
+{
+  "name": "url-shortener",
+  "version": "1.0.0",
+  "description": "Simple REST-based URL shortener",
+  "main": "dist/server.js",
+  "repository": "git@github.com:vvkin/url-shortener.git",
+  "author": "Vadym Kinchur <vkincur@gmail.com>",
+  "license": "MIT"
+}
