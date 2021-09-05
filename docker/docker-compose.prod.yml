@@ -13,16 +13,25 @@ services:
     networks:
       - local
 
+  cache:
+    build:
+      context: ./
+      dockerfile: docker/redis/Dockerfile
+    restart: always
+    networks:
+      - local
+
   web:
     build:
       context: ./
-      dockerfile: docker/Dockerfile
+      dockerfile: docker/server/Dockerfile
       target: production
     env_file: .env
     ports:
       - ${PORT}:${PORT}
     depends_on:
       - db
+      - cache
     restart: always
     networks:
       - local

@@ -1,8 +1,10 @@
+import { CacheConfig } from './interfaces/cache.config';
 import { DatabaseConfig } from './interfaces/database.config';
 import { ServerConfig } from './interfaces/server.config';
 
 export const SERVER_CONFIG = 'SERVER';
 export const DATABASE_CONFIG = 'DATABASE';
+export const CACHE_CONFIG = 'CACHE';
 
 export const config = {
   [SERVER_CONFIG]: {
@@ -18,4 +20,9 @@ export const config = {
       dialect: 'mysql',
     },
   } as DatabaseConfig,
+  [CACHE_CONFIG]: {
+    socket: {
+      host: process.env.CACHE_HOST,
+    },
+  } as CacheConfig,
 };

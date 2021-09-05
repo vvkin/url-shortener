@@ -14,10 +14,18 @@ services:
     networks:
       - local_dev
 
+  cache:
+    build:
+      context: ./
+      dockerfile: docker/redis/Dockerfile
+    restart: always
+    networks:
+      - local_dev
+
   web:
     build:
       context: ./
-      dockerfile: docker/Dockerfile
+      dockerfile: docker/server/Dockerfile
       target: development
     env_file: .env
     ports:
@@ -27,6 +35,7 @@ services:
       - ./node_modules:/usr/src/app/node_modules
     depends_on:
       - db
+      - cache
     restart: always
     networks:
       - local_dev
