@@ -12,14 +12,14 @@ RUN --mount=type=bind,source=src,target=src \
     yarn build
 
 FROM base AS development
-ENV NODE_ENV development
+ENV NODE_ENV=development
 COPY package.json tsconfig.json ./
 COPY src src
 RUN --mount=target=.,from=base
 CMD ["yarn", "start:dev"]
 
 FROM build AS production
-ENV NODE_ENV production
+ENV NODE_ENV=production
 COPY package.json tsconfig.json paths.js ./
 RUN --mount=target=.,from=base \
     --mount=target=.,from=build

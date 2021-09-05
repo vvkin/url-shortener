@@ -17,7 +17,7 @@ services:
   web:
     build:
       context: ./
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
       target: development
     env_file: .env
     ports:

@@ -16,7 +16,6 @@
     "test": "echo test"
   },
   "dependencies": {
-    "@types/express": "^4.17.13",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mysql2": "^2.3.0",
@@ -24,6 +23,7 @@
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
     "@types/node": "^16.7.10",
     "@typescript-eslint/eslint-plugin": "^4.30.0",
     "@typescript-eslint/parser": "^4.30.0",

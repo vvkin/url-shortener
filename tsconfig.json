@@ -13,7 +13,7 @@
     "baseUrl": "./src",
     "paths": {
       "@src/*": ["*"],
-      "@database": ["database/*"],
+      "@database/*": ["database/*"],
       "@config/*": ["config/*"],
       "@domain/*": ["domain/*"],
       "@shared/*": ["shared/*"]
