@@ -3,6 +3,6 @@ import { config, CACHE_CONFIG } from '@config/config';
 
 const options = config[CACHE_CONFIG];
 
-const cache = createClient(options);
+const cacheClient = createClient(options);
 
-export { cache };
+export { cacheClient };

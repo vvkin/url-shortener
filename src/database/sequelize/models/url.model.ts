@@ -1,9 +1,4 @@
-import {
-  Model,
-  DataTypes,
-  ValidationError,
-  UniqueConstraintError,
-} from 'sequelize';
+import { Model, DataTypes, UniqueConstraintError } from 'sequelize';
 import { sequelize } from '@database/index';
 import { UrlDto } from '@shared/dto/url.dto';
 

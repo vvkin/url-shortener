@@ -1,5 +1,6 @@
 export interface UrlsConfig {
-  shortUrlLength: number;
+  aliasLength: number;
   expiresIn: number;
+  creationAttempts: number;
   alphabet: string;
 }

@@ -11,8 +11,8 @@ export const URLS_CONFIG = 'URLS';
 
 export const config = {
   [SERVER_CONFIG]: {
-    port: process.env.PORT ?? 8080,
-    host: process.env.HOST ?? '0.0.0.0',
+    port: process.env.PORT || 8080,
+    host: process.env.HOST || '0.0.0.0',
   } as ServerConfig,
   [DATABASE_CONFIG]: dbConfig as DatabaseConfig,
   [CACHE_CONFIG]: {
@@ -21,8 +21,9 @@ export const config = {
     },
   } as CacheConfig,
   [URLS_CONFIG]: {
+    aliasLength: 8,
     expiresIn: 1095, // 3 years
-    shortUrlLength: 8,
+    creationAttempts: 5,
     alphabet: '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', // base62
   } as UrlsConfig,
 };

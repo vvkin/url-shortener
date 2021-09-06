@@ -4,4 +4,9 @@ const addDays = (date: Date, days: number): Date => {
   return tempDate;
 };
 
-export { addDays };
+const dateExpired = (date: Date): boolean => {
+  const currentDate = new Date();
+  return date < currentDate;
+};
+
+export { addDays, dateExpired };
