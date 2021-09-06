@@ -2,7 +2,7 @@ import { dbConfig } from '@database/sequelize/config';
 import { CacheConfig } from './interfaces/cache.config';
 import { DatabaseConfig } from './interfaces/database.config';
 import { ServerConfig } from './interfaces/server.config';
-import { UrlsConfig } from './interfaces/url.config';
+import { UrlsConfig } from './interfaces/urls.config';
 
 export const SERVER_CONFIG = 'SERVER';
 export const DATABASE_CONFIG = 'DATABASE';

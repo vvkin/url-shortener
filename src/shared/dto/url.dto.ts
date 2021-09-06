@@ -1,6 +1,6 @@
 export interface UrlDto {
-  shortUrl: string;
-  longUrl: string;
+  alias: string;
+  url: string;
   expiresAt: Date;
   createdAt: Date;
 }

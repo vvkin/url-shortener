@@ -1,5 +1,5 @@
 import { Application } from 'express';
-import { BaseRouter } from '@src/shared/abstract/router.base';
+import { BaseRouter } from '@shared/abstract/router.base';
 import { UrlRouter } from './url';
 
 const initRouters = (app: Application): BaseRouter[] => {

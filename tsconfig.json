@@ -13,7 +13,7 @@
     "outDir": "./dist",
     "baseUrl": "./src",
     "paths": {
-      "@src/*": ["*"],
+      "@lib/*": ["lib/*"],
       "@database/*": ["database/*"],
       "@models/*": ["database/sequelize/models/*"],
       "@config/*": ["config/*"],

@@ -1,4 +1,6 @@
-class KeyService {
+import { IKeyService } from '../interface/key.service.interface';
+
+class KeyService implements IKeyService {
   constructor(private alphabet: string) {}
 
   async getRandomKey(keyLength: number): Promise<string> {
