@@ -4,8 +4,10 @@ import { UrlService } from '../service/url.service';
 class UrlController {
   constructor(private urlService: UrlService) {}
 
-  async get(req: Request, res: Response): Promise<void> {
-    res.status(200).json({ hello: 'world' });
+  async postLongUrl(req: Request, res: Response): Promise<void> {
+    const { longUrl } = req.body;
+    const urlMapping = await this.urlService.createShortUrl(longUrl);
+    res.status(200).send(urlMapping);
   }
 }
 

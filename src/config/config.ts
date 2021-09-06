@@ -2,6 +2,7 @@ import { dbConfig } from '@database/sequelize/config';
 import { CacheConfig } from './interfaces/cache.config';
 import { DatabaseConfig } from './interfaces/database.config';
 import { ServerConfig } from './interfaces/server.config';
+import { UrlsConfig } from './interfaces/url.config';
 
 export const SERVER_CONFIG = 'SERVER';
 export const DATABASE_CONFIG = 'DATABASE';
@@ -21,6 +22,7 @@ export const config = {
   } as CacheConfig,
   [URLS_CONFIG]: {
     expiresIn: 1095, // 3 years
-    shortLinkLength: 8,
-  },
+    shortUrlLength: 8,
+    alphabet: '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', // base62
+  } as UrlsConfig,
 };
