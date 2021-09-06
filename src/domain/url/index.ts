@@ -6,13 +6,14 @@ import { UrlModel } from '@models/url.model';
 import { UrlService } from './service/url.service';
 import { UrlController } from './controller/url.controller';
 import { KeyService } from './service/key.service';
+import { validateAlias, validateUrl } from './middleware/url.middleware';
 
 const { aliasLength, expiresIn, creationAttempts, alphabet } =
   config[URLS_CONFIG];
 
 class UrlRouter extends BaseRouter {
   constructor(app: Application) {
-    super(app, 'urlRoutes');
+    super(app, 'urlRouter');
   }
 
   protected registerRoutes(): Application {
@@ -27,8 +28,19 @@ class UrlRouter extends BaseRouter {
         creationAttempts
       )
     );
-    this.app.post('/', urlController.createAlias.bind(urlController));
-    this.app.get('/:alias', urlController.redirectByAlias.bind(urlController));
+
+    this.app.post(
+      '/',
+      validateUrl,
+      urlController.createAlias.bind(urlController)
+    );
+
+    this.app.get(
+      '/:alias',
+      validateAlias,
+      urlController.redirectByAlias.bind(urlController)
+    );
+
     return this.app;
   }
 }

@@ -1,13 +1,20 @@
 import { STATUS_CODES } from 'http';
 
 class HttpError extends Error {
-  public name: string;
   public status: number;
+  public error: string;
 
-  constructor(message: string, status: number) {
-    super(message || STATUS_CODES[status]);
+  constructor(message = 'Internal Server Error', status = 500) {
+    super(message);
     this.name = new.target.name;
     this.status = status;
+    this.error = STATUS_CODES[status] || message;
+  }
+}
+
+class HttpBadRequest extends HttpError {
+  constructor(message: string) {
+    super(message, 400);
   }
 }
 
@@ -23,4 +30,10 @@ class HttpConflict extends HttpError {
   }
 }
 
-export { HttpNotFound, HttpConflict };
+class HttpInternal extends HttpError {
+  constructor(message?: string) {
+    super(message);
+  }
+}
+
+export { HttpError, HttpBadRequest, HttpNotFound, HttpConflict, HttpInternal };

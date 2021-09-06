@@ -17,10 +17,4 @@ class EntityConflict extends AbstractError {
   }
 }
 
-class InternalError extends AbstractError {
-  constructor(message = 'Internal server error') {
-    super(message);
-  }
-}
-
-export { InternalError, EntityNotFound, EntityConflict };
+export { AbstractError, EntityNotFound, EntityConflict };

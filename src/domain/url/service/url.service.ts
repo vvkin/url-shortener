@@ -36,7 +36,7 @@ class UrlService implements IUrlService {
   async getUrl(alias: string): Promise<string> {
     const url = await this.findUrl(alias);
     if (!url) {
-      throw new EntityNotFound('Alias is invalid or has expired!');
+      throw new EntityNotFound('Alias is invalid or has expired');
     } else return url;
   }
 
@@ -49,7 +49,7 @@ class UrlService implements IUrlService {
       const record = await instance.tryToSave();
       if (record) return record;
     }
-    throw new EntityConflict('Unable to create link alias!');
+    throw new EntityConflict('Unable to create link alias');
   }
 }
 
