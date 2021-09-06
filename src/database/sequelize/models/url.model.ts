@@ -1,5 +1,6 @@
 import { Model, DataTypes, Optional } from 'sequelize';
 import { sequelize } from '@database/index';
+import { UrlDto } from '@src/shared/dto/url.dto';
 
 export interface UrlAttributes {
   shortUrl: string;
@@ -11,7 +12,7 @@ type UrlCreationAttributes = Optional<UrlAttributes, 'expiresAt'>;
 
 class UrlModel
   extends Model<UrlAttributes, UrlCreationAttributes>
-  implements UrlAttributes
+  implements UrlDto
 {
   public shortUrl!: string;
   public longUrl!: string;

@@ -23,7 +23,12 @@ class UrlRouter extends BaseRouter {
       expiresIn
     );
     const urlController = new UrlController(urlService);
+
     this.app.post('/', urlController.postLongUrl.bind(urlController));
+    this.app.get(
+      '/:shortUrl',
+      urlController.redirectByShortUrl.bind(urlController)
+    );
     return this.app;
   }
 }
