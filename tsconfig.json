@@ -8,12 +8,14 @@
     "noEmitOnError": true,
     "skipLibCheck": true,
     "removeComments": true,
+    "allowJs": true,
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./src",
     "paths": {
-      "@src/*": ["*"],
+      "@lib/*": ["lib/*"],
       "@database/*": ["database/*"],
+      "@models/*": ["database/sequelize/models/*"],
       "@config/*": ["config/*"],
       "@domain/*": ["domain/*"],
       "@shared/*": ["shared/*"]

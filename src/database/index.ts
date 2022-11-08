@@ -1,2 +1,2 @@
-export * from './sequelize/config';
-export * from './redis/config';
+export { cacheClient } from './redis/config';
+export { sequelize } from './sequelize';
