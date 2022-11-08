@@ -1,0 +1,9 @@
+const { resolve, join } = require('path');
+const basePath = resolve('src/database/sequelize');
+
+module.exports = {
+  config: join(basePath, 'config.js'),
+  'models-path': join(basePath, 'models'),
+  'migrations-path': join(basePath, 'migrations'),
+  'seeders-path': join(basePath, 'seeders'),
+};

@@ -1,0 +1,49 @@
+# Only for development
+version: '3.9'
+
+services:
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    restart: always
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - local_dev
+
+  cache:
+    build:
+      context: ./
+      dockerfile: docker/redis/Dockerfile
+    restart: always
+    networks:
+      - local_dev
+
+  web:
+    build:
+      context: ./
+      dockerfile: docker/server/Dockerfile
+      target: development
+    env_file: .env
+    ports:
+      - ${PORT}:${PORT}
+    volumes:
+      - ./src:/usr/src/app/src/
+      - ./node_modules:/usr/src/app/node_modules
+    depends_on:
+      - db
+      - cache
+    restart: always
+    networks:
+      - local_dev
+
+volumes:
+  mysql_data:
+
+networks:
+  local_dev:
+    external: false
